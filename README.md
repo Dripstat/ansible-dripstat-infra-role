@@ -8,7 +8,6 @@ Supports most Ubuntu, Debian and RHEL based Linux distros.
 
 ```
 ansible-galaxy install Dripstat.dripstat-infra
-
 ```
 
 ## Role Variables
