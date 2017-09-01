@@ -18,7 +18,6 @@ ansible-galaxy install Dripstat.dripstat-infra
 ## Example Playbook
 
 ```
-
 ---
 - hosts: all
   roles:
