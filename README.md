@@ -1,5 +1,7 @@
 # Ansible DripStat Infra Role
 
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-Dripstat.dripstat--infra-blue.svg)](https://galaxy.ansible.com/Dripstat/dripstat-infra/)
+
 Install and configure DripStat Infra agent.
 
 Supports most Ubuntu, Debian and RHEL based Linux distros.
