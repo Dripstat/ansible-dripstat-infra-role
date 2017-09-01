@@ -1,0 +1,23 @@
+---
+- name: install apt-transport-https
+  apt: name=apt-transport-https state=present
+
+- name: add apt repo
+  apt_repository:
+    repo: "{{ ds_repo[ansible_distribution|lower] }}"
+    state: present
+    filename: 'dripstat'
+
+- name: add apt key
+  apt_key:
+    url: "https://apt.dripstat.com/key/public.gpg"
+    state: present
+
+- name: install package
+  apt: name=dripstat-infra state=present update_cache=yes state=latest
+
+- name: copy config file
+  template: src=config.toml.j2 dest=/etc/dripstat-infra/config.toml owner=root group=root mode='0644'
+
+- name: start ds-infra service
+  service: name=dripstat-infra state=started

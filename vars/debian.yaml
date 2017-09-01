@@ -1,0 +1,4 @@
+---
+ds_repo:
+  ubuntu: "{% if ansible_distribution_major_version|int >= 15 %}deb https://apt.dripstat.com/ dripstat non-free{% else %}deb https://apt.dripstat.com/ dripstat-upstart non-free{% endif %}"
+  debian: "{% if ansible_distribution_major_version|int >= 8 %}deb https://apt.dripstat.com/ dripstat non-free{% else %}deb https://apt.dripstat.com/ dripstat-upstart non-free{% endif %}"

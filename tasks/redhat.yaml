@@ -1,0 +1,37 @@
+---
+- name: install libselinux-python
+  yum:
+    name: libselinux-python
+
+- name: download repo
+  get_url:
+    url: "{{ ds_repo }}"
+    dest: "/etc/yum.repos.d/"
+
+- name: import gpg key
+  rpm_key:
+    key: https://yum.dripstat.com/infraagent/key/rpmpub.key
+    state: present
+  register: import_key
+
+- name: make cache
+  command: "yum -q makecache -y --disablerepo='*' --enablerepo=dripstat-infra"
+  when: import_key.changed
+
+- name: install package
+  yum:
+    name: dripstat-infra
+    update_cache: yes
+
+- name: copy config file
+  template:
+    src: config.toml.j2
+    dest: /etc/dripstat-infra/config.toml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: start ds-infra service
+  service:
+    name: dripstat-infra
+    state: started

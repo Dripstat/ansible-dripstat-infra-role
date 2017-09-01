@@ -1,0 +1,11 @@
+---
+- name: Load OS specific vars
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family|lower}}.yaml"
+
+- include: debian.yaml
+  when: ansible_pkg_mgr == "apt"
+
+- include: redhat.yaml
+  when: ansible_pkg_mgr == "yum"

@@ -1,0 +1,2 @@
+---
+ds_repo: "{% if ansible_distribution_major_version|int >= 7 %}https://yum.dripstat.com/infraagent/el/7/{{ansible_architecture}}/dripstat-infra.repo{% else %}https://yum.dripstat.com/infraagent/el/6/{{ansible_architecture}}/dripstat-infra.repo{% endif %}"

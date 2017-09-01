@@ -1,0 +1,24 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: DripStat
+  description: DripStat Infra Monitoring Agent installation for Linux.
+  company: "DripStat"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+      - 6
+      - 7
+    - name: Debian
+      versions:
+      - all
+    - name: Ubuntu
+      versions:
+      - all
+  galaxy_tags:
+    - system
+    - monitoring
+
