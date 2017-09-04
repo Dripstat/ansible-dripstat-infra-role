@@ -23,5 +23,5 @@ ansible-galaxy install Dripstat.dripstat-infra
 ---
 - hosts: all
   roles:
-  - {role: dripstat-infra, become: yes, ds_lic: "DripStat_License_Key" }
+  - {role: Dripstat.dripstat-infra, become: yes, ds_lic: "DripStat_License_Key" }
 ```
