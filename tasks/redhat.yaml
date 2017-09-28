@@ -30,6 +30,7 @@
     owner: root
     group: root
     mode: '0644'
+    force: no
 
 - name: start ds-infra service
   service:

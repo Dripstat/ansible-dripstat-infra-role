@@ -17,7 +17,7 @@
   apt: name=dripstat-infra state=present update_cache=yes state=latest
 
 - name: copy config file
-  template: src=config.toml.j2 dest=/etc/dripstat-infra/config.toml owner=root group=root mode='0644'
+  template: src=config.toml.j2 dest=/etc/dripstat-infra/config.toml owner=root group=root mode='0644' force=no
 
 - name: start ds-infra service
   service: name=dripstat-infra state=started
