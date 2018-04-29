@@ -21,6 +21,7 @@
 - name: install package
   yum:
     name: dripstat-infra
+    state: latest
     update_cache: yes
 
 - name: copy config file
