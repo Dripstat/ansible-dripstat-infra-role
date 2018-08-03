@@ -2,17 +2,16 @@
 - name: install apt-transport-https
   apt: name=apt-transport-https state=present
 
+- name: add apt key
+  apt_key:
+    url: "https://apt.dripstat.com/key/public.gpg"
+    state: present
+    
 - name: add apt repo
   apt_repository:
     repo: "{{ ds_repo[ansible_distribution|lower] }}"
     state: present
     filename: 'dripstat'
-    validate_certs: false
-
-- name: add apt key
-  apt_key:
-    url: "https://apt.dripstat.com/key/public.gpg"
-    state: present
 
 - name: install package
   apt: name=dripstat-infra state=latest update_cache=yes state=latest
